@@ -1,0 +1,43 @@
+<div class="course-details overflow-auto">
+    <!-- Course Code -->
+    <h4>Course Code</h4>
+    <p>{{ courseData?.code }}</p>
+    <hr class="divider">
+  
+    <!-- Course Name -->
+    <h4>Course Name</h4>
+    <p>{{ courseData?.name }}</p>
+    <hr class="divider">
+  
+    <!-- Course Type -->
+    <h4>Course Type</h4>
+    <p>{{ courseData?.type }}</p>
+    <hr class="divider">
+  
+    <!-- Course Period -->
+    <h4>Course Period</h4>
+    <p>{{ courseData?.period }}</p>
+    <hr class="divider">
+  
+    <!-- Course Credits -->
+    <div class="course-credits">
+      <h4>Credits ({{ calculateTotalCredits() }})</h4>
+      <ng-container *ngFor="let credit of getCreditsArray()">
+        <p>{{ credit.type | titlecase }} - {{ credit.value }}</p>
+      </ng-container>
+    </div>
+    <hr class="divider">
+  
+    <!-- Course Outcomes -->
+    <div class="course-outcomes" style="max-height: 30vh; overflow-y: auto;">
+      <h4>Course Outcomes (COs)</h4>
+      <p *ngFor="let co of courseData?.outcomes">{{ co }}</p>
+    </div>
+    
+    <!-- Mapped to this Course -->
+    <div class="mapped-courses" style="max-height: 30vh; overflow-y: auto;">
+      <h4>Mapped to this Course</h4>
+      <p *ngFor="let mapped of courseData?.mappedOutcomes">{{ mapped }}</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,61 @@
+{
+    "course": {
+      "code": "BA3102",
+      "name": "Quantitative Techniques",
+      "type": "Program Elective",
+      "period": "Semester - I",
+      "credits": {
+        "lecture": 3,
+        "tutorial": 0,
+        "practical": 1,
+        "project": 0
+      },
+      "outcomes": ["CO2", "CO4", "CO5", "CO7", "CO13", "CO14"],
+      "mappedOutcomes": ["PO7", "PO10", "PO12", "PO8","sssiuhwuryuwrhuh","asdehewuyrue ","sdahsufe7h"]
+    },
+    "assessmentProgress":      [
+      { "name": "", "completion": 28 },
+      { "name": "", "completion": 74 },
+      { "name": "Assessment", "completion": 50 },
+      { "name": "", "completion": 0 },
+      { "name": "", "completion": 85 },
+      { "name": "", "completion": 35 },
+      { "name": "", "completion": 70 },
+      { "name": "", "completion": 78 },
+      { "name": "Quiz", "completion": 28 },
+      { "name": "", "completion": 55 },
+      { "name": "", "completion": 0 },
+      { "name": "", "completion": 0 },
+      { "name": "", "completion": 0 },
+      { "name": "", "completion": 68 },
+      { "name": "presentation", "completion": 35 },
+      { "name": "", "completion": 24 },
+      { "name": "lab", "completion": 46 },
+      { "name": "", "completion": 74 },
+      { "name": "viva", "completion": 88 }
+    ]    
+    ,
+    "attendance": {
+      "dates":  [
+        "1/7", "8/7", "15/7", "22/7", "29/7", "5/8", "12/8", "19/8", "26/8", "2/9", "9/9", "16/9", "23/9", "30/9", "14/10", "21/10"
+      ],
+      "attendance": [
+        25,
+        60,
+        20,
+        85,
+        60,
+        65,
+        85,
+        60,
+        95,
+        80,
+        60,
+        75,
+        60,
+        55,
+        60
+      ]
+    }
+  }
+  
