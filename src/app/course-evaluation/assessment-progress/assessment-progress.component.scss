@@ -1,0 +1,18 @@
+.evaluationchart {
+    height: 85%; /* Default for larger screens */
+}
+
+/* Adjust for medium screens */
+@media (max-width: 768px) {
+    .evaluationchart {
+        height: 90% /* Height for tablets */
+    }
+}
+
+/* Adjust for small screens */
+@media (max-width: 576px) {
+    .evaluationchart {
+        height: 90% /* Height for mobile devices */
+    }
+}
+

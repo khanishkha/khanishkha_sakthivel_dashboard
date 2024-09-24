@@ -1,0 +1,22 @@
+<div class="w-100 h-100 p-1">
+    <div style="height: 10%;" class="d-flex flex-column flex-sm-row w-100">
+        <div class="mb-3 mb-sm-0"><app-card title="Total Students" score="102"></app-card></div>
+        <div class="ms-sm-3"><app-card title="Course Average Mark" score="85%"></app-card></div>
+    </div>
+    
+
+    <div style="height: 90%;">
+        <div class="h-50">
+            <h5>Assessment Progress</h5>
+            <div class="outline evaluationchart">
+                <app-hichart-chart style="height: 100%;"  [chartOptions]="assessmentProgressChart"></app-hichart-chart>
+            </div>
+        </div>
+        <div class="h-50">
+            <h5>Student's Attendance</h5>
+            <div class="outline evaluationchart">
+                <app-hichart-chart style="height: 100%;"  [chartOptions]="attendanceChart"></app-hichart-chart>
+            </div>
+        </div>
+    </div>
+</div>
