@@ -127,12 +127,8 @@ export class AssessmentProgressComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    console.log(this.courseData,'course data')
-    if(this.courseCode&&this.courseName){
-      console.log(this.courseData,'course data')
-    //this.courseService.getCourseData(this.courseCode,this.courseName).subscribe(data => {
-      // console.log(data, 'data');
-      this.assementProgressData=this.courseData.assessmentProgress
+    if(this.courseData){
+      this.assementProgressData=this.courseData?.assessmentProgress
       this.attendanceChart = {
         legend: {
           enabled: false,  // This will hide the legend
@@ -145,7 +141,7 @@ export class AssessmentProgressComponent implements OnInit {
         },
       
         xAxis: {
-          categories: this.courseData.attendance.dates, 
+          categories: this.courseData?.attendance?.dates, 
           title: {
             text: 'Weeks',
           },
@@ -158,18 +154,15 @@ export class AssessmentProgressComponent implements OnInit {
         series: [
           {
             name: 'Attendance',
-            data: this.courseData.attendance.attendance,
+            data: this.courseData?.attendance?.attendance,
             type: 'line',
           }
         ],
       };
   
       this.updateAssementProgressData()
-      //console.log(this.lineChartOptions,'chart options');
       this.cdr.detectChanges();
-      // If you're using change detection or chart update methods, trigger it here
-      // Example: this.chart.update(this.lineChartOptions); if chart is an instance of Highcharts.Chart
-    //});
+     
   }
   }
 
@@ -177,8 +170,8 @@ export class AssessmentProgressComponent implements OnInit {
   updateAssementProgressData(){
     const categories = this.assementProgressData.map(course => course.name);
     const completionData = this.assementProgressData.map(course => ({
-      y: course.completion === 0 ? 100 : course.completion, // Use 100 for 0% completion
-      color: course.completion === 0 ? '#f0e9e9' : '#91b07c', // Grey for 0 completion
+      y: course?.completion === 0 ? 100 : course?.completion, // Use 100 for 0% completion
+      color: course?.completion === 0 ? '#f0e9e9' : '#91b07c', // Grey for 0 completion
     }));
   
     this.assessmentProgressChart = {

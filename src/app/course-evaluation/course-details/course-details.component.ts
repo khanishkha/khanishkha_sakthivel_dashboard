@@ -66,10 +66,17 @@ export class CourseDetailsComponent implements OnInit {
     });
   }
   getCourseData(){
-    this.courseService.getCourseData(this.selectedCourseCode,this.selectedCourseName).subscribe(data => {
+    let indexOfCourseCode=this.courseCodes.indexOf(this.selectedCourseCode)
+    this.selectedCourseName=this.courseNames[indexOfCourseCode]
+    this.courseService.getCourseData(this.selectedCourseCode).subscribe(data => {
       this.courseData = data;   
       this.cdr.detectChanges(); 
     });
+  }
+  getCourseCode(){
+    let indexOfCourseName=this.courseNames.indexOf(this.selectedCourseName)
+    this.selectedCourseCode=this.courseCodes[indexOfCourseName]
+    this.getCourseData()
   }
   getCreditsArray(): { type: string, value: number }[] {
     if (!this.courseData || !this.courseData.course.credits) {
@@ -81,12 +88,6 @@ export class CourseDetailsComponent implements OnInit {
       return { type: key, value: credits[key] };
     });
   }
-  // onCourseCodeChange(){
-
-  // }
-  // onCourseNameChange(){
-
-  // }
   calculateTotalCredits(): number {
     if (!this.courseData || !this.courseData.course.credits) {
       return 0; // Return 0 if no credits are available
