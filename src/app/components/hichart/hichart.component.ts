@@ -13,7 +13,7 @@ export class HichartComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.chartOptions) {
-      console.log('Chart options updated:', this.chartOptions);
+      //console.log('Chart options updated:', this.chartOptions);
       // Any additional logic to handle chart update can go here
     }
   }
