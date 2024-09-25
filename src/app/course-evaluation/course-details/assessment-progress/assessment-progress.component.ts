@@ -113,11 +113,20 @@ export class AssessmentProgressComponent implements OnInit {
         yAxis: {
           title: { text: 'Attendance' },
         },
+        plotOptions: {
+          series: {
+              color: '#db34eb'
+          }
+      },
         series: [
           {
             name: 'Attendance',
             data: this.courseData.attendance.attendance,
             type: 'line',
+            marker: {
+              enabled: true,
+              fillColor: '#030357' // Change this color as needed
+          }
           }
         ],
       };
