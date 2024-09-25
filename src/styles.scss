@@ -4,3 +4,33 @@
     border-radius: 10px;
     padding: 10px;
 }
+/* Scrollbar track */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #d3d3d3; /* Light gray background */
+    border-radius: 10px;
+  }
+  
+  /* Scrollbar handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #acacac; /* Black scroll handle */
+    border-radius: 10px;
+  }
+  
+  /* Scrollbar track on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #cfcaca; /* Darker gray when hovered */
+  }
+  
+  /* Optional: For vertical scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Optional: For horizontal scrollbar */
+  ::-webkit-scrollbar {
+    height: 12px;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

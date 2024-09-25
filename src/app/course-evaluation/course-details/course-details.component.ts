@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CourseDataService } from 'src/app/service/course-data.service';
 
 interface Credits {
@@ -8,16 +8,28 @@ interface Credits {
   project: number;
   [key: string]: number; // For any additional credits
 }
+ interface AssessmentProgress {
+  name: string;         // Name of the assessment (can be an empty string)
+  completion: number;   // Completion percentage
+}
 
-interface CourseData {
-  code: string;
-  name: string;
-  type: string;
-  period: string;
-  credits: Credits;
-  outcomes: string[]; // Assuming outcomes is an array of strings
-  mappedOutcomes: string[]; // Assuming mappedOutcomes is also an array of strings
-  // Add any other properties you expect from the course data
+// Interface for Attendance
+ interface Attendance {
+  dates: string[];      // Array of date strings
+  attendance: number[]; // Array of attendance percentages
+}
+export interface CourseResponse {
+  course: {
+    code: string;
+    name: string;
+    type: string;
+    period: string;
+    credits: Credits;
+    outcomes: string[];
+    mappedOutcomes: string[];
+  };
+  assessmentProgress: AssessmentProgress[]; // Change to array
+  attendance: Attendance;
 }
 
 
@@ -27,34 +39,60 @@ interface CourseData {
   styleUrls: ['./course-details.component.scss']
 })
 export class CourseDetailsComponent implements OnInit {
-  courseData: CourseData | null = null;
+  courseData!: CourseResponse 
   credittotal:number=0
-  constructor(private courseService: CourseDataService) {}
+  courseList={}
+  courseNames:string[]=[]
+  courseCodes:string[]=[]
+  selectedCourseCode:string='BA3102';
+  selectedCourseName:string='Quantitative Techniques';
+  
+  constructor(private courseService: CourseDataService,private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.courseService.getCourseData().subscribe(data => {
-      console.log(data,'data')
-      this.courseData = data.course;     
-      
+   
+    this.courseService.getCourseList().subscribe(data => {
+      //console.log(data,'data')
+      this.courseList = data.courseList;     
+      this.courseCodes=Object.keys(this.courseList);
+      this.courseNames = Object.values(this.courseList);
+      this.selectedCourseName=this.courseNames[0]
+      this.selectedCourseCode=this.courseCodes[0]     
+      this.getCourseData() 
+      // this.courseService.getCourseData(this.selectedCourseCode,this.selectedCourseName).subscribe(data => {
+      //   this.courseData = data;   
+      //   this.cdr.detectChanges(); 
+      // });
+    });
+  }
+  getCourseData(){
+    this.courseService.getCourseData(this.selectedCourseCode,this.selectedCourseName).subscribe(data => {
+      this.courseData = data;   
+      this.cdr.detectChanges(); 
     });
   }
   getCreditsArray(): { type: string, value: number }[] {
-    if (!this.courseData || !this.courseData.credits) {
+    if (!this.courseData || !this.courseData.course.credits) {
       return [];
     }
 
-    const credits = this.courseData.credits;
+    const credits = this.courseData.course.credits;
     return Object.keys(credits).map(key => {     
       return { type: key, value: credits[key] };
     });
   }
- 
+  // onCourseCodeChange(){
+
+  // }
+  // onCourseNameChange(){
+
+  // }
   calculateTotalCredits(): number {
-    if (!this.courseData || !this.courseData.credits) {
+    if (!this.courseData || !this.courseData.course.credits) {
       return 0; // Return 0 if no credits are available
     }
 
-    const credits = this.courseData.credits;
+    const credits = this.courseData.course.credits;
     return Object.values(credits).reduce((sum, value) => sum + value, 0);
   }
 }
