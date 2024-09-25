@@ -93,7 +93,7 @@ export class AssessmentProgressComponent implements OnInit {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.courseData) {
-      console.log(this.courseData, 'course data');
+      //console.log(this.courseData, 'course data');
       this.initializeCharts(); // Update charts when courseData changes
     }
   }
