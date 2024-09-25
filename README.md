@@ -1,5 +1,4 @@
 # khanishkha_sakthivel_dashboard
-# Angular Course Management Project
 
 This project is developed using Angular 12 and utilizes Angular Material for UI components and Highcharts for chart visualization. The application allows users to change the course name or code, which triggers an API call to fetch the corresponding course data.
 
