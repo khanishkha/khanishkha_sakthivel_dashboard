@@ -1,6 +1,5 @@
 <div class="d-flex flex-column flex-sm-row col-12 p-2 h-100 w-100">
   <div class="course-details col-12 col-sm-3">
-    <div class="course-details overflow-auto"></div>
     <!-- Course Code -->
     
     <mat-form-field appearance="fill">
@@ -17,7 +16,7 @@
    
     <mat-form-field appearance="fill">
       <mat-label>Select Course Name</mat-label>
-      <mat-select [(value)]="selectedCourseName" (selectionChange)="getCourseData()">
+      <mat-select [(value)]="selectedCourseName" (selectionChange)="getCourseCode()">
         <mat-option *ngFor="let name of courseNames" [value]="name">
           {{ name }}
         </mat-option>
@@ -45,13 +44,13 @@
     <hr class="divider">
 
     <!-- Course Outcomes -->
-    <div class="course-outcomes" style="max-height: 7vh; overflow-y: auto;">
+    <div class="course-outcomes" style="max-height: 8vh; overflow-y: auto;">
       <h4>Course Outcomes (COs)</h4>
       <p *ngFor="let co of courseData?.course?.outcomes">{{ co }}</p>
     </div>
 
     <!-- Mapped to this Course -->
-    <div class="mapped-courses" style="max-height: 7vh; overflow-y: auto;">
+    <div class="mapped-courses" style="max-height: 8vh; overflow-y: auto;">
       <h4>Mapped to this Course</h4>
       <p *ngFor="let mapped of courseData?.course?.mappedOutcomes">{{ mapped }}</p>
     </div>

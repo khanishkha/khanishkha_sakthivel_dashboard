@@ -24,11 +24,11 @@ export class CourseDataService {
 
   constructor(private http: HttpClient) {}
 
-  getCourseData(courseCode: string, courseName: string): Observable<any> {
+  getCourseData(courseCode: string): Observable<any> {
     return this.http.get<CourseResponse>(this.courseUrl).pipe(
       map(response => {
-        console.log(response,'res')
         return response[courseCode] || null}) // Filter by course code
+
     );
   }
 
