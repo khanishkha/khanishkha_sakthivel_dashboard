@@ -14,27 +14,34 @@
       "outcomes": ["CO2", "CO4", "CO5", "CO7", "CO13", "CO14","CO2", "CO4", "CO5", "CO7", "CO13", "CO14","CO2", "CO4", "CO5", "CO7", "CO13", "CO14","CO2", "CO4", "CO5", "CO7", "CO13", "CO14","CO2", "CO4", "CO5", "CO7", "CO13", "CO14","CO2", "CO4", "CO5", "CO7", "CO13", "CO14"],
       "mappedOutcomes": ["PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8","PO7", "PO10", "PO12", "PO8"]
     },
-    "assessmentProgress":      [
-      { "name": "", "completion": 28 },
-      { "name": "", "completion": 74 },
-      { "name": "Assessment", "completion": 50 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 85 },
-      { "name": "", "completion": 35 },
-      { "name": "", "completion": 70 },
-      { "name": "", "completion": 78 },
-      { "name": "Quiz", "completion": 28 },
-      { "name": "", "completion": 55 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 68 },
-      { "name": "presentation", "completion": 35 },
-      { "name": "", "completion": 24 },
-      { "name": "lab", "completion": 46 },
-      { "name": "", "completion": 74 },
+    "assessmentProgress":  {    
+    "data":[
+       { "name": "Assessment1", "completion": 28 },
+      { "name": "Assessment2", "completion": 74 },
+      { "name": "Assessment3", "completion": 50 },
+      { "name": "Assessment4", "completion": 0 },
+      { "name": "Quiz1", "completion": 85 },
+      { "name": "Quiz2", "completion": 35 },
+      { "name": "Quiz3", "completion": 70 },
+      { "name": "Quiz4", "completion": 78 },
+      { "name": "Quiz5", "completion": 28 },
+      { "name": "Quiz6", "completion": 55 },
+      { "name": "Quiz7", "completion": 0 },
+      { "name": "Quiz8", "completion": 0 },
+      { "name": "Quiz9", "completion": 0 },
+      { "name": "presentation1", "completion": 68 },
+      { "name": "presentation2", "completion": 35 },
+      { "name": "presentation3", "completion": 24 },
+      { "name": "lab1", "completion": 46 },
+      { "name": "lab2", "completion": 74 },
       { "name": "viva", "completion": 88 }
-    ]    
+    ],
+    "groups":{
+      "Assessment":["Assessment1","Assessment2","Assessment3","Assessment4"],
+      "Quiz4":["Quiz1","Quiz2","Quiz3","Quiz4","Quiz5","Quiz6","Quiz7","Quiz8","Quiz9"],"presentation":["presentation1","presentation2","presentation3"],
+      "lab":["lab1","lab2"],"viva":["viva"]
+    }
+  }
     ,
     "attendance": {
       "dates":  [
@@ -74,27 +81,35 @@
       "outcomes": ["CO2", "CO5", "CO6", "CO1", "CO21", "CO14"],
       "mappedOutcomes": ["PO9", "PO11", "PO12", "PO8"]
     },
-    "assessmentProgress":      [
-      { "name": "", "completion": 28 },
-      { "name": "", "completion": 74 },
-      { "name": "Assessment", "completion": 50 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 85 },
-      { "name": "", "completion": 35 },
-      { "name": "", "completion": 70 },
-      { "name": "", "completion": 78 },
-      { "name": "Quiz", "completion": 28 },
-      { "name": "", "completion": 55 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 0 },
-      { "name": "", "completion": 68 },
-      { "name": "presentation", "completion": 35 },
-      { "name": "", "completion": 24 },
-      { "name": "lab", "completion": 46 },
-      { "name": "", "completion": 74 },
+    "assessmentProgress":  {    
+    "data":[
+       { "name": "Assessment1", "completion": 28 },
+      { "name": "Assessment2", "completion": 74 },
+      { "name": "Assessment3", "completion": 50 },
+      { "name": "Assessment4", "completion": 0 },
+      { "name": "Quiz1", "completion": 85 },
+      { "name": "Quiz2", "completion": 35 },
+      { "name": "Quiz3", "completion": 70 },
+      { "name": "Quiz4", "completion": 78 },
+      { "name": "Quiz5", "completion": 28 },
+      { "name": "Quiz6", "completion": 55 },
+      { "name": "Quiz7", "completion": 0 },
+      { "name": "Quiz8", "completion": 0 },
+      { "name": "Quiz9", "completion": 0 },
+      { "name": "presentation1", "completion": 68 },
+      { "name": "presentation2", "completion": 35 },
+      { "name": "presentation3", "completion": 24 },
+      { "name": "lab1", "completion": 46 },
+      { "name": "lab2", "completion": 74 },
       { "name": "viva", "completion": 88 }
-    ]    
+    ],
+    "groups":{
+      "Assessment":["Assessment1","Assessment2","Assessment3","Assessment4"],
+      "Quiz":["Quiz1","Quiz2","Quiz3","Quiz4","Quiz5","Quiz6","Quiz7","Quiz8","Quiz9"],
+      "presentation":["presentation1","presentation2","presentation3"],
+      "lab":["lab1","lab2"],"viva":["viva1"]
+    }
+  }
     ,
     "attendance": {
       "dates":  [
@@ -115,7 +130,7 @@
         75,
         40,
         5,
-        60
+        60        
       ]
     }
   }

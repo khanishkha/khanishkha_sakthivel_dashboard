@@ -1,36 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CourseDataService } from 'src/app/service/course-data.service';
-
-interface Credits {
-  lecture: number;
-  tutorial: number;
-  practical: number;
-  project: number;
-  [key: string]: number; // For any additional credits
-}
- interface AssessmentProgress {
-  name: string;         // Name of the assessment (can be an empty string)
-  completion: number;   // Completion percentage
-}
-
-// Interface for Attendance
- interface Attendance {
-  dates: string[];      // Array of date strings
-  attendance: number[]; // Array of attendance percentages
-}
-export interface CourseResponse {
-  course: {
-    code: string;
-    name: string;
-    type: string;
-    period: string;
-    credits: Credits;
-    outcomes: string[];
-    mappedOutcomes: string[];
-  };
-  assessmentProgress: AssessmentProgress[]; // Change to array
-  attendance: Attendance;
-}
+import { CourseResponse } from './courseData.interface';
 
 
 @Component({
@@ -82,18 +52,20 @@ export class CourseDetailsComponent implements OnInit {
     if (!this.courseData || !this.courseData.course.credits) {
       return [];
     }
-
+  
     const credits = this.courseData.course.credits;
-    return Object.keys(credits).map(key => {     
-      return { type: key, value: credits[key] };
+    return Object.keys(credits).map(key => {
+      return { type: key, value: credits[key] as number };
     });
   }
+  
   calculateTotalCredits(): number {
     if (!this.courseData || !this.courseData.course.credits) {
       return 0; // Return 0 if no credits are available
     }
-
+  
     const credits = this.courseData.course.credits;
-    return Object.values(credits).reduce((sum, value) => sum + value, 0);
+    return Object.values(credits).reduce((sum, value) => sum + (value as number), 0);
   }
+  
 }

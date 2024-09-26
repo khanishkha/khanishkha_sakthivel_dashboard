@@ -2,18 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { courstData } from '../course-evaluation/course-details/courseData.interface';
 // Move the CourseResponse interface outside of the CourseDataService class
-export interface CourseResponse {
-  [key: string]: {
-    course: {};
-    assessmentProgress: Array<{ name: string; completion: number }>;
-    attendance: {
-      dates: string[];
-      attendance: number[];
-    };
-  };
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +16,7 @@ export class CourseDataService {
   constructor(private http: HttpClient) {}
 
   getCourseData(courseCode: string): Observable<any> {
-    return this.http.get<CourseResponse>(this.courseUrl).pipe(
+    return this.http.get<courstData>(this.courseUrl).pipe(
       map(response => {
         return response[courseCode] || null}) // Filter by course code
 
